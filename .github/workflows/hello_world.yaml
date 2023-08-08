@@ -1,0 +1,40 @@
+# Name of the workflow
+name: Hello world workflow
+
+# Below block specifies the events this workflow is triggered on 
+on:
+  # Event specified to be push on main branch
+  push:
+    branches:
+      - main
+  # Event specified to be pull on main branch
+  pull_request:
+    branches:
+      - main
+  # Used to test the trigger, provides a button in the UI
+  workflow_dispatch:
+
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+jobs:
+  # Job is called 'Hello', specifies the type of runner used for the job, which is GitHub hosted runner for server 2022,
+  # and the steps that will be included in this job. In our case we're using the checkout action from https://github.com/actions/checkout
+  hello:
+    runs-on: windows-2022
+    steps:
+      # Using https://github.com/actions/checkout, and more specifically we're using version 2 annotated by the @v2. You can find this in the releases tab
+      # @ is not limited to release names, can also be commit hash, release tags, or branch
+      - uses: actions/checkout@v2
+      # We create another action, called 'hello world' This action runs echo "Hello world" in bash
+      # Shells https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+      - name: hello world
+        run: echo "Hello world"
+        shell: cmd
+
+  goodbye:
+    runs-on: windows-2022
+    steps:
+      - name: goodbye world
+        run: echo "Goodbye world"
+        shell: cmd
+
