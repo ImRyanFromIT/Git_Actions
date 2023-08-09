@@ -1,0 +1,16 @@
+name: Deploy to file share
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  DeployFiles:
+    runs-on: [self-hosted, windows]
+    
+    steps:
+      - name: Deploy files
+        run: robocopy ./ u:\actions_test\ /MIR
+        shell: cmd
