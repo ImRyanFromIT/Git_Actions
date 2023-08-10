@@ -11,6 +11,8 @@ jobs:
     runs-on: [self-hosted, windows]
     
     steps:
-      - name: Deploy files
-        run: git clone https://github.com/ImRyanFromIT/Git_Actions u:\actions_test\git_actions
+      - name: Pull Repo
+        run: 'u:'
+        cd actions_test\Git_Actions
+        git pull origin main
         shell: cmd
