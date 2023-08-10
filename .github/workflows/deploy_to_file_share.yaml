@@ -12,7 +12,8 @@ jobs:
     
     steps:
       - name: Pull Repo
-        run: 'u:'
+        run: | 
+        u:
         cd actions_test\Git_Actions
         git pull origin main
         shell: cmd
