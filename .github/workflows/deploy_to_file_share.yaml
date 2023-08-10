@@ -12,7 +12,7 @@ jobs:
     
     steps:
       - name: Pull Repo
-        run: 'u:'
-        run: cd actions_test\Git_Actions
-        run: git pull origin main
+      - run: 'u:'
+      - run: cd actions_test\Git_Actions
+      - run: git pull origin main
         shell: cmd
