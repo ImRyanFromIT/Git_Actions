@@ -1,4 +1,4 @@
-name: Website CD
+name: Website Integrate and Deploy
 
 on:
     push:
